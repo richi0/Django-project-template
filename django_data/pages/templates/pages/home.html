@@ -1,0 +1,35 @@
+{% extends 'pages/_base.html' %} {% block content %}
+<h1>
+  Django Project Template!
+</h1>
+{% if user.is_authenticated %} Hi {{user.email}}!
+<p>
+  <a href="{% url 'account_logout' %}">
+    Log Out
+  </a>
+</p>
+<p>
+  <a href="{% url 'account_change_password' %}">
+    Change password
+  </a>
+</p>
+{% else %}
+<p>
+  You are not logged in
+</p>
+<p>
+  <a href="{% url 'account_login' %}">
+    Log In
+  </a>
+</p>
+<p>
+  <a href="{% url 'account_signup' %}">
+    Sign Up
+  </a>
+</p>
+<p>
+  <a href="{% url 'account_reset_password' %}">
+    Reset password
+  </a>
+</p>
+{% endif %} {% endblock content %}
